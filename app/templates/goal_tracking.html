@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2> Goal Tracker </h2>
+<form method="post">
+    <input type="text" name="goal" placeholder="Enter a goal" required>
+    <button type="submit">Add Goal</button>
+</form>
+
+<ul>
+    {% for goal in goals %}
+        <li>
+            {{  goal.text  }}
+            <form action="{{ url_for("main.delete_goal", goal_id=goal.id)  }}" method="post" style="display: inline;">
+                <button type="submit">Mark as complete</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
