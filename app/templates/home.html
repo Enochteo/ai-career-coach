@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Want Skill analysis and learning recommendations to improve your skillset for jobs.</p>
+<p>Try: </p>
+<p><a href="{{ url_for("main.upload_resume") }}">Uploading your Resume</a></p>
+<p><a href="{{ url_for("main.skills_page") }}">Manually typing in your Skills</a></p>
+<br>
+<br>
+<p><a href="{{ url_for('main.view_reports') }}">📊 View Past Reports</a></p>
+
+{% endblock %}

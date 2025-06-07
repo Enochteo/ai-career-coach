@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2> Past Skill Gap Analyses</h2>
+
+{% for report in reports %}
+    <div style="margin-bottom: 2rem;">
+        <strong>{{ report.timestamp.strftime('%Y-%m-%d %H:%M') }}</strong><br>
+        Job Target: {{ report.job_title }} ({{ report.input_type }})<br><br>
+
+        <strong>Missing Skills:</strong><br>
+        <pre>{{ report.missing_skills }}</pre>
+
+        <strong>Resources:</strong><br>
+        <pre>{{ report.resources }}</pre>
+    </div>
+{% endfor %}
+{% endblock %}

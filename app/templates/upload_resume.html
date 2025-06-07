@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2> Upload Resume for Skill Gap Analysis </h2>
+<form method="post" enctype="multipart/form-data">
+    <label for="resume">Choose PDF Resume: </label> <br>
+    <input type="file" name="resume" accept=".pdf" required> <br><br>
+
+    <label for="job">Target Job Title:</label><br>
+    <input type="text" name="job" placeholder="e.g. Software Engineer, Data Analyst, Systems Engineer" required> <br><br>
+
+    <button type="submit">Analyze</button>
+</form>
+
+{% if result %}
+<hr>
+<h3>Missing Skills:</h3>
+<pre>{{ result.gaps }}</pre>
+
+<h3>Recommended Learning Resources</h3>
+<pre>{{ result.resources }}</pre>
+
+{% endif %}
+{% endblock %}
