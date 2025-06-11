@@ -5,4 +5,5 @@ This would be an extension of my Resume analyzer web app. It is an application t
 ## Description 
 ## Features
 ## Tech stack
+## Demo and pics
 ## 
