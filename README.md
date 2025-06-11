@@ -7,4 +7,4 @@ This would be an extension of my Resume analyzer web app. It is an application t
 ## Tech stack
 ## Demo and pics
 ## Folder structure
-## 
+## Contribute...
