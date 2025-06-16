@@ -30,6 +30,7 @@ Other: Jinja2 templates, Bootstrap (for styling), Pandas
 Coming soon. The project is currently under development.
 
 ### Folder Structure
+```
 career-coach-app/
 │
 ├── static/               # CSS, JS, and image files
@@ -39,7 +40,7 @@ career-coach-app/
 ├── utils/                # AI logic, résumé parsing
 ├── requirements.txt      # Python dependencies
 └── README.md
-
+```
 **Contributing**
 Contributions are welcome. If you'd like to collaborate, feel free to fork the repository and submit a pull request. You can also open an issue for bug reports or feature suggestions.
 
