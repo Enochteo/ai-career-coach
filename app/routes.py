@@ -162,5 +162,5 @@ def career_recommendation():
             temperature = 0.7,
             max_tokens = 700
         )
-        result = response.choice[0].message.content.strip()
+        result = response.choices[0].message.content.strip()
     return render_template("career_recommendation.html", result=result)
