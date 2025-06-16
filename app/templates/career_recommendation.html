@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>AI Career Coach</h2>
+<form method="POST">
+    <label>Skills:</label><br>
+    <textarea name="skills" rows="4" cols="50" required></textarea><br><br>
+
+    <label for="interests">Career Interests: </label>
+    <textarea name="interests" rows="4" cols="50" required></textarea><br><br>
+
+    
+    <label>Professionnal Level</label>
+    <select name="level" required>
+        <option value="student">Student</option>
+        <option value="entry">Entry-Level</option>
+        <option value="mid">Mid</option>
+        <option value="senior">Senior</option>
+    </select><br><br>
+
+    <input type="submit" value="Get recommendations">
+</form>
+
+{% if result %}
+<hr>
+<h3>Career recommendations</h3>
+<pre>{{  result  }}</pre>
+{% endif %}
+
+{% endblock %}
