@@ -33,11 +33,21 @@ Coming soon. The project is currently under development.
 ```
 career-coach-app/
 │
-├── static/               # CSS, JS, and image files
-├── templates/            # HTML templates
-├── app.py                # Main Flask application
-├── models.py             # Database models
-├── utils/                # AI logic, résumé parsing
+├──app/
+    ├──templates/
+        ├──base.html
+        ├──goal_tracking.html
+        ├──home.html
+        ├──skill_gap.html
+        ├──upload_resume.html
+        ├──view_reports.html
+    ├──utils/             # AI logic, résumé parsing
+        ├──__init__.py
+        ├──forms.py
+        ├──models.py      # Database models
+        ├──routes.py
+    ├──instance/
+├── run.py                # Main Flask application        
 ├── requirements.txt      # Python dependencies
 └── README.md
 ```
