@@ -137,3 +137,30 @@ def view_reports():
     reports = SkillReport.query.order_by(SkillReport.timestamp.desc()).all()
     return render_template("view_reports.html", reports=reports)
 
+@main.route("/career", methods=["GET", "POST"])
+def career_recommendation():
+    result = None
+    if request.method == "POST":
+        skills = request.form.get("skills")
+        interests = request.form.get("interests")
+        level = request.form.get("level")
+
+        prompt = f"""A user with the following background is seeking career guidance:
+        - Skills: {skills}
+        - Interests: {interests}
+        - Professional Level: {level}
+
+        Please suggest 3 tailored career paths. For each one, include:
+        1. Job title and brief explanation.
+        2. Key skills required.
+        3. One actionable next step.
+
+        Format the response clearly under separate headings."""
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages = [{"role":"user", "content": prompt}],
+            temperature = 0.7,
+            max_tokens = 700
+        )
+        result = response.choice[0].message.content.strip()
+    return render_template("career_recommendation.html", result=result)
