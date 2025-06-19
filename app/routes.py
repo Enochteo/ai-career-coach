@@ -4,6 +4,7 @@ from openai import OpenAI
 import os
 import pdfplumber
 from werkzeug.utils import secure_filename
+from flask_login import login_required
 
 
 main = Blueprint("main", __name__)
@@ -13,7 +14,8 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def home():
     return render_template("home.html")
 
-@main.route("/goals", methods=["GET", "POST"])
+@main.route("/goals", methods=["GET", "POST"]) 
+@login_required
 def goals_page():
     if request.method == "POST":
         goal_text = request.form.get("goal")
@@ -78,7 +80,9 @@ def skills_page():
         db.session.commit()
     return render_template("skill_gap.html", result=result)
 
+
 @main.route("/upload_resume", methods=["GET", "POST"])
+@login_required
 def upload_resume():
     result = None
     if request.method == "POST":
@@ -133,6 +137,7 @@ def upload_resume():
     return render_template("upload_resume.html", result=result)
 
 @main.route("/reports")
+@login_required
 def view_reports():
     reports = SkillReport.query.order_by(SkillReport.timestamp.desc()).all()
     return render_template("view_reports.html", reports=reports)
