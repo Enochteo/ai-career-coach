@@ -10,3 +10,7 @@ Note: Activate the venv before running or installing any library and python3 is 
 **Wednesday, Jun 17**
 - Worked on user authentication
 - created a model for users in the database in models.py
+- created and registered the authorization blueprint in auth.py and __init__.py respectively
+- made migrations in models
+- made routes for authorization (login, logout and register)
+- created templates for these routes with basic form implementation - post.
