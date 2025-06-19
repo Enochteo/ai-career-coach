@@ -13,6 +13,11 @@
 <body>
     <div class="container">
         <header> Career Coach App </header>
+        {% if current_user.is_authenticated %}
+            <p>Welcome {{ current_user.full_name }} | <a href="{{ url_for('auth.logout') }}">Logout</a></p>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}">Login</a> | <a href="{{ url_for('auth.register') }}">Register</a>
+        {% endif %}
         {% block content %}{% endblock %}
     </div>
 </body>
